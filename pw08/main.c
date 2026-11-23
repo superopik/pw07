@@ -11,7 +11,7 @@ int main(void)
 
 	while (flag)
 	{
-		printf("\na   Задать размер массива\nb   Заполнить массив\nc   Представление массива(значения, адреса)\nd   poisk_znach_posl_otric\ne   poisk_summi_elementov_v_diapozone_znach_k_m\nf   kolich_elem_bolshe_sred\ng   Выход\nВыберете пункт: ");
+		printf("\na   Г‡Е•Г¤Е•Е€Гј Д‘Е•Г§Д›ДєД‘ Д›Е•Е„Е„ДЌГўЕ•\nb   Г‡Е•ДЏГ®Г«Г­ДЌЕ€Гј Д›Е•Е„Е„ДЌГў\nc   ДЋД‘ДєГ¤Е„Е€Е•ГўГ«ДєГ­ДЌДє Д›Е•Е„Е„ДЌГўЕ•(Г§Г­Е•Г·ДєГ­ДЌЛ™, Е•Г¤Д‘ДєЕ„Е•)\nd   poisk_znach_posl_otric\ne   poisk_summi_elementov_v_diapozone_znach_k_m\nf   kolich_elem_bolshe_sred\ng   Г‚Е±Е‘Г®Г¤\nГ‚Е±ГЎДєД‘ДєЕ€Дє ДЏГіГ­Д™Е€: ");
 		ch = getchar();
 		if (ch != EOF)
 		{
@@ -20,6 +20,11 @@ int main(void)
 			case 'a':
 			{
 				size = size_mas();
+				if (getchar() == EOF)
+				{
+					flag = 0;
+					break;
+				}
 				while (getchar() != '\n')
 				{
 
@@ -34,7 +39,12 @@ int main(void)
 				}
 				else
 				{
-					printf("Вы не ввели размер массива\n");
+					printf("Г‚Е± Г­Дє ГўГўДєГ«ДЌ Д‘Е•Г§Д›ДєД‘ Д›Е•Е„Е„ДЌГўЕ•\n");
+				}
+				if (getchar() == EOF)
+				{
+					flag = 0;
+					break;
 				}
 				while (getchar() != '\n')
 				{
@@ -50,7 +60,12 @@ int main(void)
 				}
 				else
 				{
-					printf("Вы не ввели размер массива, или не заполнили его\n");
+					printf("Г‚Е± Г­Дє ГўГўДєГ«ДЌ Д‘Е•Г§Д›ДєД‘ Д›Е•Е„Е„ДЌГўЕ•, ДЌГ«ДЌ Г­Дє Г§Е•ДЏГ®Г«Г­ДЌГ«ДЌ ДєДѓГ®\n");
+				}
+				if (getchar() == EOF)
+				{
+					flag = 0;
+					break;
 				}
 				while (getchar() != '\n')
 				{
@@ -67,7 +82,12 @@ int main(void)
 				}
 				else
 				{
-					printf("Вы не ввели размер массива, или не заполнили его\n");
+					printf("Г‚Е± Г­Дє ГўГўДєГ«ДЌ Д‘Е•Г§Д›ДєД‘ Д›Е•Е„Е„ДЌГўЕ•, ДЌГ«ДЌ Г­Дє Г§Е•ДЏГ®Г«Г­ДЌГ«ДЌ ДєДѓГ®\n");
+				}
+				if (getchar() == EOF)
+				{
+					flag = 0;
+					break;
 				}
 				while (getchar() != '\n')
 				{
@@ -80,9 +100,14 @@ int main(void)
 				if (size > 0 && zapolnen > 0)
 				{
 					int k, m;
-					printf("Введите значение k и m: ");
+					printf("Г‚ГўДєГ¤ДЌЕ€Дє Г§Г­Е•Г·ДєГ­ДЌДє k ДЌ m: ");
 					if (((scanf("%9d", &k)==1) && k!=EOF) && ((scanf("%9d", &m) == 1) && m != EOF))
 					{
+						if (getchar() == EOF)
+						{
+							flag = 0;
+							break;
+						}
 						while (getchar() != '\n')
 						{
 
@@ -93,14 +118,19 @@ int main(void)
 						}
 						else
 						{
-							printf("k не может быть меньше m");
+							printf("k Г­Дє Д›Г®Д‡ДєЕ€ ГЎЕ±Е€Гј Д›ДєГ­ГјЕ™Дє m");
 						}
 					}
 					break;
 				}
 				else
 				{
-					printf("Вы не ввели размер массива, или не заполнили его\n");
+					printf("Г‚Е± Г­Дє ГўГўДєГ«ДЌ Д‘Е•Г§Д›ДєД‘ Д›Е•Е„Е„ДЌГўЕ•, ДЌГ«ДЌ Г­Дє Г§Е•ДЏГ®Г«Г­ДЌГ«ДЌ ДєДѓГ®\n");
+				}
+				if (getchar() == EOF)
+				{
+					flag = 0;
+					break;
 				}
 				while (getchar() != '\n')
 				{
@@ -116,7 +146,12 @@ int main(void)
 				}
 				else
 				{
-					printf("Вы не ввели размер массива, или не заполнили его\n");
+					printf("Г‚Е± Г­Дє ГўГўДєГ«ДЌ Д‘Е•Г§Д›ДєД‘ Д›Е•Е„Е„ДЌГўЕ•, ДЌГ«ДЌ Г­Дє Г§Е•ДЏГ®Г«Г­ДЌГ«ДЌ ДєДѓГ®\n");
+				}
+				if (getchar() == EOF)
+				{
+					flag = 0;
+					break;
 				}
 				while (getchar() != '\n')
 				{
@@ -131,7 +166,7 @@ int main(void)
 			}
 			default:
 			{
-				printf("Вы ввели неверный символ, программа будет завершена\n");
+				printf("Г‚Е± ГўГўДєГ«ДЌ Г­ДєГўДєД‘Г­Е±Г© Е„ДЌД›ГўГ®Г«, ДЏД‘Г®ДѓД‘Е•Д›Д›Е• ГЎГіГ¤ДєЕ€ Г§Е•ГўДєД‘Е™ДєГ­Е•\n");
 				flag = 0;
 				break;
 			}
@@ -145,4 +180,5 @@ int main(void)
 
 	}
 	return 0;
+
 }
