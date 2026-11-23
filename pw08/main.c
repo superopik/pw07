@@ -1,17 +1,17 @@
 #include "myarrfunc.h"
-
+#include <locale.h>
 
 int main(void)
 {
+	setlocale(LC_ALL, "");
 	int flag = 1;
 	int ch;
 	size_t size=0;
 	int mas[1000];
 	int zapolnen = 0;
-
 	while (flag)
 	{
-		printf("\na   Çŕäŕňü đŕçěĺđ ěŕńńčâŕ\nb   Çŕďîëíčňü ěŕńńčâ\nc   Ďđĺäńňŕâëĺíčĺ ěŕńńčâŕ(çíŕ÷ĺíč˙, ŕäđĺńŕ)\nd   poisk_znach_posl_otric\ne   poisk_summi_elementov_v_diapozone_znach_k_m\nf   kolich_elem_bolshe_sred\ng   Âűőîä\nÂűáĺđĺňĺ ďóíęň: ");
+		printf("\na   Задать размер массива\nb   Заполнить массив\nc   Представление массива(значения, адреса)\nd   poisk_znach_posl_otric\ne   poisk_summi_elementov_v_diapozone_znach_k_m\nf   kolich_elem_bolshe_sred\ng   Выход\nВыберете пункт: ");
 		ch = getchar();
 		if (ch != EOF)
 		{
@@ -20,56 +20,29 @@ int main(void)
 			case 'a':
 			{
 				size = size_mas();
-				if (getchar() == EOF)
-				{
-					flag = 0;
-					break;
-				}
-				while (getchar() != '\n')
-				{
-
-				}
 				break;
 			}
 			case 'b':
 			{
 				if (size > 0)
 				{
-					zapolnen=zapolnenie_massiva(mas, size);
+					zapolnen = zapolnenie_massiva(mas, size);
 				}
 				else
 				{
-					printf("Âű íĺ ââĺëč đŕçěĺđ ěŕńńčâŕ\n");
-				}
-				if (getchar() == EOF)
-				{
-					flag = 0;
-					break;
-				}
-				while (getchar() != '\n')
-				{
-
+					printf("Вы не ввели размер массива\n");
 				}
 				break;
 			}
 			case 'c':
 			{
-				if (size > 0 && zapolnen>0)
+				if (size > 0 && zapolnen > 0)
 				{
 					predstavlenie_massiva(mas, size);
 				}
 				else
 				{
-					printf("Âű íĺ ââĺëč đŕçěĺđ ěŕńńčâŕ, čëč íĺ çŕďîëíčëč ĺăî\n");
-				}
-				if (getchar() == EOF)
-				{
-					flag = 0;
-					break;
-				}
-				while (getchar() != '\n')
-				{
-
+					printf("Вы не ввели размер массива, или не заполнили его\n");
 				}
 				break;
 			}
@@ -77,85 +50,37 @@ int main(void)
 			{
 				if (size > 0 && zapolnen > 0)
 				{
-					printf("%d\n",poisk_znach_posl_otric(mas, size));
+					printf("%d\n", poisk_znach_posl_otric(mas, size));
 
 				}
 				else
 				{
-					printf("Âű íĺ ââĺëč đŕçěĺđ ěŕńńčâŕ, čëč íĺ çŕďîëíčëč ĺăî\n");
+					printf("Вы не ввели размер массива, или не заполнили его\n");
 				}
-				if (getchar() == EOF)
-				{
-					flag = 0;
-					break;
-				}
-				while (getchar() != '\n')
-				{
 
-				}
 				break;
 			}
 			case 'e':
 			{
 				if (size > 0 && zapolnen > 0)
 				{
-					int k, m;
-					printf("Ââĺäčňĺ çíŕ÷ĺíčĺ k č m: ");
-					if (((scanf("%9d", &k)==1) && k!=EOF) && ((scanf("%9d", &m) == 1) && m != EOF))
-					{
-						if (getchar() == EOF)
-						{
-							flag = 0;
-							break;
-						}
-						while (getchar() != '\n')
-						{
-
-						}
-						if (k <= m)
-						{
-							printf("%d\n", poisk_summi_elementov_v_diapozone_znach_k_m(mas, size, k, m));
-						}
-						else
-						{
-							printf("k íĺ ěîćĺň áűňü ěĺíüřĺ m");
-						}
-					}
-					break;
+					printf("%d\n", poisk_summi_elementov_v_diapozone_znach_k_m(mas, size));
 				}
 				else
 				{
-					printf("Âű íĺ ââĺëč đŕçěĺđ ěŕńńčâŕ, čëč íĺ çŕďîëíčëč ĺăî\n");
-				}
-				if (getchar() == EOF)
-				{
-					flag = 0;
-					break;
-				}
-				while (getchar() != '\n')
-				{
-
+					printf("Вы не ввели размер массива, или не заполнили его\n");
 				}
 				break;
 			}
 			case 'f':
 			{
-				if (size > 0 && zapolnen> 0)
+				if (size > 0 && zapolnen > 0)
 				{
 					printf("%d\n", kolich_elem_bolshe_sred(mas, size));
 				}
 				else
 				{
-					printf("Âű íĺ ââĺëč đŕçěĺđ ěŕńńčâŕ, čëč íĺ çŕďîëíčëč ĺăî\n");
-				}
-				if (getchar() == EOF)
-				{
-					flag = 0;
-					break;
-				}
-				while (getchar() != '\n')
-				{
-
+					printf("Вы не ввели размер массива, или не заполнили его\n");
 				}
 				break;
 			}
@@ -166,7 +91,7 @@ int main(void)
 			}
 			default:
 			{
-				printf("Âű ââĺëč íĺâĺđíűé ńčěâîë, ďđîăđŕěěŕ áóäĺň çŕâĺđřĺíŕ\n");
+				printf("Вы ввели неверный символ, программа будет завершена\n");
 				flag = 0;
 				break;
 			}
@@ -177,8 +102,6 @@ int main(void)
 			flag = 0;
 		}
 
-
 	}
 	return 0;
-
 }
