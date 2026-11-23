@@ -36,7 +36,7 @@ int zapolnenie_massiva(int* mas, size_t size)
 {
 	int c;
 	printf("Введите %zu чисел\n", size);
-	for (int i = 0;i < size;i++)
+	for (size_t i = 0;i < size;i++)
 	{
 		if ((scanf("%9d", (mas + i)) != 1))
 		{
@@ -56,7 +56,7 @@ int zapolnenie_massiva(int* mas, size_t size)
 void predstavlenie_massiva(int* mas, size_t size)
 {
 	int c;
-	for (int i = 0;i < size;i++)
+	for (size_t i = 0;i < size;i++)
 	{
 		printf("%9d | %p\n", *(mas + i), (mas + i));
 	}
@@ -94,7 +94,7 @@ int poisk_summi_elementov_v_diapozone_znach_k_m(int* mas, size_t size)
 	{
 		if (k <= m)
 		{
-			for (int i = 0;i < size;i++)
+			for (size_t i = 0;i < size;i++)
 			{
 				if ((*(mas + i) >= k) && (*(mas + i) <= m))
 				{
@@ -123,12 +123,12 @@ int kolich_elem_bolshe_sred(int* mas, size_t size)
 	int summ = 0;
 	int kol = 0;
 	int c;
-	for (int i = 0;i < size;i++)
+	for (size_t i = 0;i < size;i++)
 	{
 		summ += *(mas + i);
 	}
 	int sred = summ / (int)size;
-	for (int i = 0;i < size;i++)
+	for (size_t i = 0;i < size;i++)
 	{
 		if (*(mas + i) > sred)
 		{
